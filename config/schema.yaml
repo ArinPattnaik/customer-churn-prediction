@@ -1,0 +1,19 @@
+required_columns:
+  - customer_id
+  - churn
+numerical_columns:
+  - tenure_months
+  - monthly_charges
+  - total_charges
+  - num_support_tickets
+  - annual_revenue
+  - age
+categorical_columns:
+  - gender
+  - location
+  - contract_type
+  - payment_method
+target_column: churn
+id_column: customer_id
+revenue_column: annual_revenue
+encoding_strategy: onehot

@@ -1,0 +1,11 @@
+risk_segments:
+  High:
+    min_probability: 0.7
+  Medium:
+    min_probability: 0.4
+  Low:
+    min_probability: 0.0
+retention:
+  target_percentage: 0.10
+  success_rate: 0.50
+  estimated_cost_per_customer: 100.0

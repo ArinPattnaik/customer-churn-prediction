@@ -1,0 +1,17 @@
+strategies:
+  - risk_segment: High
+    driver: monthly_charges
+    strategy: "Offer discounted plan or loyalty pricing"
+  - risk_segment: High
+    driver: num_support_tickets
+    strategy: "Assign dedicated support representative"
+  - risk_segment: High
+    driver: tenure_months
+    strategy: "Offer long-term contract incentive"
+  - risk_segment: Medium
+    driver: monthly_charges
+    strategy: "Send targeted promotional offer"
+  - risk_segment: Medium
+    driver: contract_type
+    strategy: "Propose contract upgrade with benefits"
+default_strategy: "General Outreach"

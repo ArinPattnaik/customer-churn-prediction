@@ -1,0 +1,501 @@
+customer_id,gender,age,location,tenure_months,contract_type,payment_method,monthly_charges,total_charges,num_support_tickets,annual_revenue,churn
+CUST_0001,Male,26,Phoenix,15,Two year,Mailed check,22.5,297.85,3,248.53,0
+CUST_0002,Female,56,Los Angeles,5,Month-to-month,Mailed check,22.98,99.46,8,279.14,0
+CUST_0003,Female,62,New York,36,One year,Credit card,100.94,2914.16,2,1172.58,1
+CUST_0004,Female,34,New York,49,Month-to-month,Electronic check,29.67,1532.7,9,372.4,0
+CUST_0005,Male,60,New York,47,Month-to-month,Mailed check,77.74,3695.33,0,983.83,0
+CUST_0006,Male,41,Phoenix,36,One year,Bank transfer,65.34,2470.4,2,738.53,1
+CUST_0007,Female,35,New York,69,Two year,Bank transfer,92.91,5442.89,6,1156.88,1
+CUST_0008,Female,31,Houston,5,Two year,Mailed check,100.5,462.48,1,1296.78,1
+CUST_0009,Female,52,Chicago,19,One year,Bank transfer,46.49,772.0,8,585.44,1
+CUST_0010,Female,73,Phoenix,18,Month-to-month,Credit card,70.95,1056.51,0,792.29,1
+CUST_0011,Male,34,Phoenix,50,Two year,Electronic check,58.16,3195.42,8,748.28,1
+CUST_0012,Male,18,Phoenix,44,Two year,Credit card,31.16,1275.66,7,402.03,1
+CUST_0013,Male,27,Phoenix,39,One year,Electronic check,104.17,3868.84,3,1315.67,1
+CUST_0014,Male,33,New York,63,Month-to-month,Mailed check,21.95,1491.72,4,249.75,0
+CUST_0015,Female,26,Phoenix,9,Two year,Mailed check,117.8,1017.59,2,1406.61,1
+CUST_0016,Female,63,Houston,28,One year,Mailed check,112.89,3244.94,3,1327.31,0
+CUST_0017,Male,55,New York,16,Two year,Bank transfer,44.79,587.08,0,508.47,1
+CUST_0018,Male,50,Phoenix,9,Month-to-month,Mailed check,110.54,1052.45,1,1267.71,1
+CUST_0019,Female,24,Houston,32,Month-to-month,Credit card,98.46,3283.84,3,1219.09,1
+CUST_0020,Female,33,Los Angeles,13,Month-to-month,Electronic check,26.06,345.04,1,293.34,0
+CUST_0021,Male,69,New York,60,Two year,Bank transfer,44.98,2906.55,7,496.35,0
+CUST_0022,Female,75,Chicago,22,Month-to-month,Mailed check,60.64,1259.92,6,678.87,1
+CUST_0023,Male,60,New York,37,Two year,Credit card,62.3,2506.09,8,745.61,1
+CUST_0024,Male,72,Los Angeles,41,Two year,Credit card,25.72,1028.42,8,287.49,0
+CUST_0025,Male,74,Houston,9,Two year,Electronic check,87.52,685.72,1,996.93,0
+CUST_0026,Female,34,Chicago,34,One year,Credit card,40.43,1395.04,3,449.34,0
+CUST_0027,Female,22,New York,2,Two year,Bank transfer,65.83,144.76,1,744.64,1
+CUST_0028,Male,63,Phoenix,48,One year,Electronic check,48.5,2168.43,8,595.0,0
+CUST_0029,Female,74,Phoenix,14,Month-to-month,Bank transfer,113.89,1339.8,1,1432.94,1
+CUST_0030,Male,50,New York,44,One year,Mailed check,40.36,1758.56,4,460.21,0
+CUST_0031,Female,58,Phoenix,36,One year,Credit card,24.41,790.94,2,273.09,0
+CUST_0032,Male,52,Houston,15,Month-to-month,Bank transfer,27.52,439.6,2,352.34,0
+CUST_0033,Male,75,Chicago,6,One year,Mailed check,50.83,326.24,0,574.59,1
+CUST_0034,Female,69,Houston,20,Month-to-month,Bank transfer,112.58,1961.19,2,1454.02,1
+CUST_0035,Female,73,Chicago,35,Month-to-month,Electronic check,35.92,1270.25,6,461.95,1
+CUST_0036,Female,39,Chicago,30,One year,Mailed check,42.29,1266.18,6,544.46,0
+CUST_0037,Male,29,Phoenix,69,Two year,Mailed check,53.11,2962.02,4,696.28,1
+CUST_0038,Female,50,New York,45,Month-to-month,Mailed check,92.85,3735.79,9,1088.62,1
+CUST_0039,Female,64,New York,1,Two year,Electronic check,71.99,75.01,10,904.83,1
+CUST_0040,Female,50,Phoenix,41,One year,Bank transfer,86.34,2964.3,4,1070.66,1
+CUST_0041,Male,65,Chicago,25,Month-to-month,Electronic check,62.04,1678.35,10,761.68,1
+CUST_0042,Female,38,Los Angeles,27,One year,Credit card,62.99,1656.5,10,747.08,1
+CUST_0043,Male,23,Los Angeles,37,Month-to-month,Credit card,71.55,2620.56,5,888.27,1
+CUST_0044,Female,47,Houston,6,One year,Mailed check,44.48,251.55,1,574.98,0
+CUST_0045,Female,67,New York,32,One year,Bank transfer,34.76,1119.31,1,393.66,0
+CUST_0046,Female,51,Phoenix,16,Two year,Mailed check,65.65,1092.86,10,802.84,0
+CUST_0047,Female,46,Phoenix,71,One year,Mailed check,64.59,3887.68,7,814.11,0
+CUST_0048,Male,33,Los Angeles,31,One year,Bank transfer,47.46,1211.21,4,550.82,0
+CUST_0049,Female,22,New York,30,One year,Bank transfer,58.3,1479.38,3,686.67,0
+CUST_0050,Female,72,Chicago,54,Two year,Mailed check,58.95,3281.79,0,690.48,1
+CUST_0051,Female,75,New York,54,Month-to-month,Mailed check,73.82,4067.56,9,883.75,1
+CUST_0052,Male,71,Houston,44,One year,Credit card,86.89,3973.96,2,1130.17,0
+CUST_0053,Female,29,Chicago,11,Month-to-month,Electronic check,84.27,779.31,7,962.73,1
+CUST_0054,Male,34,Chicago,49,Month-to-month,Bank transfer,47.83,2543.73,6,570.55,0
+CUST_0055,Male,33,Los Angeles,9,Month-to-month,Mailed check,98.12,879.13,0,1257.32,0
+CUST_0056,Male,67,Los Angeles,15,One year,Electronic check,76.4,991.74,4,855.89,1
+CUST_0057,Male,61,Phoenix,14,One year,Bank transfer,77.87,1175.94,9,915.13,1
+CUST_0058,Male,56,Chicago,14,Month-to-month,Mailed check,89.72,1118.51,10,1140.43,1
+CUST_0059,Female,72,Houston,48,One year,Bank transfer,26.9,1283.79,0,343.61,1
+CUST_0060,Female,35,Houston,56,Two year,Mailed check,37.61,2014.59,10,479.14,0
+CUST_0061,Female,35,Chicago,35,One year,Credit card,52.23,1597.07,1,594.65,0
+CUST_0062,Female,40,Phoenix,64,One year,Credit card,105.1,5748.06,3,1220.93,0
+CUST_0063,Female,49,Houston,67,Two year,Credit card,114.81,6351.38,6,1448.86,0
+CUST_0064,Female,37,Houston,12,Two year,Electronic check,49.42,546.38,3,602.71,1
+CUST_0065,Male,32,Los Angeles,46,Month-to-month,Bank transfer,90.29,3660.23,4,1131.43,1
+CUST_0066,Female,56,Los Angeles,62,One year,Electronic check,47.65,2885.98,8,626.75,0
+CUST_0067,Male,35,Houston,23,Month-to-month,Credit card,50.23,1169.62,2,659.94,0
+CUST_0068,Female,39,New York,2,Month-to-month,Credit card,77.41,145.66,7,1015.4,1
+CUST_0069,Female,21,New York,52,Month-to-month,Bank transfer,69.17,3500.11,10,771.8,1
+CUST_0070,Female,68,Houston,16,Two year,Electronic check,75.81,1121.81,9,859.81,1
+CUST_0071,Male,65,Chicago,55,Month-to-month,Credit card,50.54,2741.64,9,660.77,1
+CUST_0072,Female,18,New York,21,One year,Bank transfer,43.99,892.01,2,522.65,0
+CUST_0073,Male,22,Houston,37,Two year,Credit card,90.7,3392.47,7,1030.37,1
+CUST_0074,Female,70,Phoenix,70,Month-to-month,Electronic check,42.48,2511.79,4,466.06,1
+CUST_0075,Male,35,Houston,57,Two year,Electronic check,32.44,1861.29,6,392.39,0
+CUST_0076,Female,71,Phoenix,33,Two year,Credit card,22.59,647.57,10,275.8,1
+CUST_0077,Male,29,Houston,23,Two year,Electronic check,67.05,1535.14,4,794.28,0
+CUST_0078,Female,39,Phoenix,53,One year,Credit card,53.33,2829.43,2,664.75,1
+CUST_0079,Male,67,Phoenix,59,One year,Mailed check,28.81,1488.54,1,370.95,0
+CUST_0080,Male,66,Chicago,53,One year,Bank transfer,25.42,1287.35,9,312.69,0
+CUST_0081,Male,19,Chicago,37,Two year,Credit card,63.81,2383.34,1,782.39,1
+CUST_0082,Female,47,Phoenix,71,Month-to-month,Electronic check,60.8,3744.44,1,751.15,1
+CUST_0083,Male,47,New York,54,Two year,Electronic check,103.47,6113.0,3,1153.39,1
+CUST_0084,Female,70,Los Angeles,54,Month-to-month,Mailed check,53.99,3021.34,4,619.74,1
+CUST_0085,Male,42,Phoenix,69,One year,Mailed check,68.43,4248.24,8,892.25,0
+CUST_0086,Female,65,Los Angeles,30,One year,Mailed check,105.6,2924.8,5,1319.21,0
+CUST_0087,Female,73,New York,5,Month-to-month,Bank transfer,32.62,177.71,5,420.73,1
+CUST_0088,Male,48,Chicago,53,One year,Mailed check,107.09,6192.19,1,1243.59,0
+CUST_0089,Female,73,Los Angeles,41,Two year,Credit card,82.68,3614.4,7,900.07,1
+CUST_0090,Male,46,Chicago,56,Month-to-month,Credit card,117.83,6783.97,1,1468.82,0
+CUST_0091,Male,51,Los Angeles,38,One year,Credit card,55.85,1972.05,3,679.04,0
+CUST_0092,Female,27,New York,49,Month-to-month,Mailed check,81.97,3503.41,9,976.0,1
+CUST_0093,Female,40,Houston,37,Two year,Electronic check,87.76,2751.59,7,1010.82,0
+CUST_0094,Female,33,New York,26,One year,Mailed check,119.94,3293.07,1,1459.98,1
+CUST_0095,Female,56,Los Angeles,36,Two year,Electronic check,20.81,793.75,0,249.56,0
+CUST_0096,Male,66,New York,29,Two year,Credit card,83.66,2392.82,10,1057.62,1
+CUST_0097,Female,64,Los Angeles,40,Month-to-month,Bank transfer,98.86,3203.1,5,1089.07,1
+CUST_0098,Female,51,Houston,17,Two year,Electronic check,98.65,1782.6,5,1281.7,0
+CUST_0099,Female,27,Phoenix,44,Month-to-month,Electronic check,100.42,4155.58,1,1291.84,0
+CUST_0100,Female,25,Phoenix,12,One year,Mailed check,99.07,956.04,8,1157.59,1
+CUST_0101,Male,57,Houston,48,Two year,Electronic check,30.83,1287.68,0,357.23,0
+CUST_0102,Male,37,Houston,53,One year,Mailed check,31.67,1365.64,0,350.86,0
+CUST_0103,Female,44,New York,48,Two year,Mailed check,87.05,4274.26,8,1095.21,1
+CUST_0104,Female,31,New York,53,One year,Electronic check,113.91,5336.44,5,1351.8,1
+CUST_0105,Female,43,New York,70,One year,Bank transfer,110.17,7661.37,0,1240.02,1
+CUST_0106,Male,68,Phoenix,3,Two year,Bank transfer,25.06,67.67,2,282.99,0
+CUST_0107,Male,18,Phoenix,30,One year,Electronic check,52.86,1338.84,9,679.79,1
+CUST_0108,Female,18,New York,23,One year,Bank transfer,30.99,755.49,2,393.45,1
+CUST_0109,Female,25,Phoenix,34,Two year,Credit card,25.24,877.48,8,276.44,1
+CUST_0110,Male,64,New York,58,Two year,Mailed check,70.38,4423.4,0,848.18,0
+CUST_0111,Male,22,Chicago,52,Month-to-month,Electronic check,62.63,2710.89,7,724.82,1
+CUST_0112,Male,50,Phoenix,49,Two year,Bank transfer,119.46,5614.52,7,1413.51,0
+CUST_0113,Female,70,Houston,56,One year,Electronic check,65.16,3169.3,5,766.08,0
+CUST_0114,Male,22,Chicago,33,Month-to-month,Bank transfer,57.43,1602.94,7,734.89,1
+CUST_0115,Female,39,New York,72,Two year,Electronic check,26.0,2034.84,8,288.43,0
+CUST_0116,Female,27,Phoenix,40,Two year,Electronic check,55.16,2147.66,3,659.56,0
+CUST_0117,Male,72,Phoenix,15,Two year,Electronic check,96.26,1403.8,6,1264.75,0
+CUST_0118,Female,39,New York,4,One year,Bank transfer,38.04,153.8,4,411.39,0
+CUST_0119,Female,44,Phoenix,4,One year,Credit card,29.18,111.95,6,339.02,1
+CUST_0120,Female,61,Phoenix,7,Month-to-month,Mailed check,35.56,255.47,0,407.27,0
+CUST_0121,Female,40,Phoenix,54,One year,Electronic check,47.32,2622.95,1,523.65,0
+CUST_0122,Male,18,Chicago,6,Month-to-month,Electronic check,42.05,276.35,0,484.56,1
+CUST_0123,Female,29,New York,42,Month-to-month,Mailed check,32.0,1275.75,6,374.8,0
+CUST_0124,Female,73,Chicago,6,One year,Credit card,63.62,358.03,1,775.01,0
+CUST_0125,Male,47,Los Angeles,52,Two year,Mailed check,22.09,1030.86,9,287.33,1
+CUST_0126,Male,65,Phoenix,52,One year,Credit card,72.4,3458.83,4,820.42,0
+CUST_0127,Male,40,Los Angeles,68,Two year,Credit card,71.0,5174.54,5,930.08,0
+CUST_0128,Female,66,Houston,19,Two year,Mailed check,45.6,738.22,2,500.73,0
+CUST_0129,Female,46,Phoenix,42,Month-to-month,Credit card,106.42,4416.74,2,1269.1,0
+CUST_0130,Male,20,Phoenix,46,Month-to-month,Mailed check,70.73,2905.85,7,826.48,1
+CUST_0131,Female,46,Phoenix,60,Two year,Bank transfer,78.03,5085.7,0,964.79,0
+CUST_0132,Male,63,Houston,8,Month-to-month,Mailed check,65.05,542.93,5,781.31,1
+CUST_0133,Male,36,Chicago,68,One year,Credit card,72.27,4165.53,5,851.42,1
+CUST_0134,Male,34,Chicago,43,Two year,Credit card,29.45,1270.8,4,378.25,0
+CUST_0135,Male,62,Chicago,19,Two year,Mailed check,111.67,1894.85,10,1311.08,1
+CUST_0136,Female,51,New York,43,Month-to-month,Electronic check,101.32,4361.27,10,1251.35,1
+CUST_0137,Female,30,New York,40,Month-to-month,Credit card,38.03,1314.71,7,501.99,1
+CUST_0138,Male,42,Houston,44,Month-to-month,Credit card,107.64,4667.06,9,1204.43,0
+CUST_0139,Male,57,Phoenix,53,One year,Bank transfer,56.43,3038.27,7,711.34,0
+CUST_0140,Female,41,Chicago,40,Two year,Mailed check,116.56,4827.03,3,1523.8,0
+CUST_0141,Female,69,Chicago,65,Two year,Credit card,72.75,5153.77,3,809.86,1
+CUST_0142,Female,35,New York,67,One year,Bank transfer,105.12,6236.75,2,1363.69,1
+CUST_0143,Male,21,Chicago,58,One year,Bank transfer,108.46,6788.53,6,1302.04,1
+CUST_0144,Female,39,Los Angeles,4,Month-to-month,Mailed check,51.87,172.15,10,577.33,1
+CUST_0145,Female,34,New York,58,Month-to-month,Electronic check,81.53,5068.06,0,1043.9,0
+CUST_0146,Female,58,Phoenix,31,Two year,Credit card,50.12,1265.23,6,596.28,1
+CUST_0147,Female,45,Los Angeles,66,Month-to-month,Credit card,77.5,5194.61,4,951.35,1
+CUST_0148,Male,52,Houston,68,Two year,Mailed check,117.47,6552.55,8,1490.39,1
+CUST_0149,Male,65,New York,6,Month-to-month,Electronic check,83.57,548.71,4,974.18,1
+CUST_0150,Male,29,Los Angeles,18,Two year,Credit card,24.43,423.82,10,291.09,0
+CUST_0151,Female,74,Phoenix,59,Month-to-month,Mailed check,23.7,1203.21,3,273.91,0
+CUST_0152,Male,40,Chicago,33,Month-to-month,Mailed check,23.66,776.15,4,304.69,1
+CUST_0153,Female,39,New York,52,Month-to-month,Mailed check,94.33,5240.63,6,1131.1,1
+CUST_0154,Female,52,Chicago,11,One year,Mailed check,63.06,762.01,2,729.66,1
+CUST_0155,Female,20,Chicago,55,Two year,Credit card,36.66,1881.56,7,472.48,1
+CUST_0156,Male,69,Phoenix,10,Two year,Mailed check,87.12,803.13,8,1082.95,0
+CUST_0157,Male,41,Houston,5,One year,Electronic check,32.62,142.03,10,382.27,1
+CUST_0158,Male,51,New York,48,One year,Credit card,64.39,2543.87,2,756.92,0
+CUST_0159,Male,25,Phoenix,24,One year,Electronic check,69.9,1536.84,8,884.93,0
+CUST_0160,Male,46,Chicago,63,Month-to-month,Electronic check,40.02,2119.67,1,518.53,0
+CUST_0161,Male,72,Chicago,9,Month-to-month,Bank transfer,75.0,598.8,4,938.13,0
+CUST_0162,Female,68,Houston,16,One year,Bank transfer,118.51,1967.49,3,1287.38,1
+CUST_0163,Male,51,Los Angeles,12,One year,Electronic check,26.57,293.16,7,336.0,0
+CUST_0164,Male,26,Houston,10,Two year,Credit card,65.0,652.62,5,801.81,1
+CUST_0165,Female,38,New York,16,Two year,Electronic check,71.81,1024.0,2,814.41,0
+CUST_0166,Male,58,Phoenix,26,One year,Bank transfer,83.51,2095.81,2,1025.05,1
+CUST_0167,Male,39,New York,22,Two year,Electronic check,85.87,1919.72,9,935.89,0
+CUST_0168,Female,19,Houston,27,One year,Bank transfer,96.7,2415.02,10,1250.68,1
+CUST_0169,Female,28,Phoenix,52,One year,Bank transfer,49.74,2125.81,0,586.81,0
+CUST_0170,Male,43,Chicago,41,Month-to-month,Bank transfer,106.15,3898.63,5,1340.21,1
+CUST_0171,Female,24,Los Angeles,60,Month-to-month,Bank transfer,32.25,1808.99,2,370.76,0
+CUST_0172,Female,66,Chicago,42,Month-to-month,Mailed check,113.38,4839.76,3,1360.09,1
+CUST_0173,Female,33,Houston,3,Month-to-month,Mailed check,29.0,79.86,7,353.8,1
+CUST_0174,Female,26,New York,37,One year,Mailed check,73.67,2873.4,6,924.27,0
+CUST_0175,Female,36,Phoenix,7,Month-to-month,Credit card,77.03,462.86,8,903.35,1
+CUST_0176,Female,53,Phoenix,17,One year,Credit card,117.51,1834.2,5,1482.03,1
+CUST_0177,Male,51,Chicago,6,One year,Electronic check,23.89,145.36,7,266.55,0
+CUST_0178,Female,55,Phoenix,21,One year,Electronic check,59.3,1226.56,4,712.64,1
+CUST_0179,Male,25,Phoenix,61,One year,Mailed check,101.57,5641.29,10,1239.24,0
+CUST_0180,Male,54,Phoenix,34,Month-to-month,Mailed check,116.71,4106.51,9,1462.54,1
+CUST_0181,Female,62,Los Angeles,19,Month-to-month,Mailed check,102.17,1694.03,9,1150.22,1
+CUST_0182,Male,73,Phoenix,27,Two year,Electronic check,61.04,1701.63,7,765.79,0
+CUST_0183,Female,47,Phoenix,62,Two year,Mailed check,72.55,4021.87,2,843.15,0
+CUST_0184,Female,32,Chicago,25,One year,Mailed check,115.73,2556.77,4,1464.08,0
+CUST_0185,Female,36,Chicago,45,Month-to-month,Bank transfer,76.05,3697.21,4,926.01,0
+CUST_0186,Male,40,Los Angeles,38,One year,Electronic check,24.21,999.64,1,299.58,0
+CUST_0187,Male,65,Los Angeles,72,Two year,Credit card,89.62,5427.84,9,1019.36,1
+CUST_0188,Male,61,Houston,13,Month-to-month,Mailed check,61.33,809.41,1,663.13,0
+CUST_0189,Male,38,Phoenix,62,One year,Bank transfer,85.05,5414.28,4,1050.38,0
+CUST_0190,Male,29,Houston,69,One year,Mailed check,93.87,6833.91,0,1212.56,1
+CUST_0191,Male,74,Chicago,24,Month-to-month,Electronic check,113.66,2969.63,4,1230.06,1
+CUST_0192,Male,74,New York,59,Month-to-month,Electronic check,118.91,6756.04,7,1527.11,1
+CUST_0193,Male,18,Los Angeles,21,Two year,Mailed check,93.11,1944.53,2,1080.92,1
+CUST_0194,Male,24,New York,55,Month-to-month,Electronic check,71.53,3249.69,10,941.05,1
+CUST_0195,Female,37,Los Angeles,50,Two year,Credit card,43.55,2234.39,5,545.9,1
+CUST_0196,Female,50,Chicago,16,Two year,Bank transfer,66.54,902.72,10,841.57,1
+CUST_0197,Female,65,Phoenix,29,Two year,Bank transfer,115.74,3166.67,7,1353.78,1
+CUST_0198,Male,51,New York,32,One year,Bank transfer,88.03,2757.08,1,1062.31,1
+CUST_0199,Female,46,New York,69,Month-to-month,Mailed check,34.99,2169.1,8,435.02,0
+CUST_0200,Female,54,New York,8,Month-to-month,Mailed check,65.34,498.66,7,793.3,1
+CUST_0201,Male,22,New York,33,Month-to-month,Mailed check,101.65,3434.09,9,1201.19,1
+CUST_0202,Female,67,Chicago,5,Two year,Mailed check,48.71,207.99,2,640.44,0
+CUST_0203,Male,23,Chicago,58,Two year,Credit card,106.96,6650.53,6,1402.67,0
+CUST_0204,Female,64,Houston,23,Month-to-month,Mailed check,119.28,2518.25,2,1527.21,0
+CUST_0205,Male,40,New York,69,Month-to-month,Mailed check,57.93,3473.14,7,663.97,0
+CUST_0206,Male,20,Los Angeles,3,One year,Credit card,44.07,108.44,9,539.18,1
+CUST_0207,Female,26,Phoenix,52,Two year,Electronic check,63.9,3196.29,0,842.48,1
+CUST_0208,Male,51,Houston,31,Month-to-month,Mailed check,50.18,1311.32,10,591.75,1
+CUST_0209,Male,42,Chicago,7,Two year,Mailed check,117.23,888.29,10,1355.76,1
+CUST_0210,Male,37,Phoenix,24,Two year,Mailed check,95.44,2157.83,3,1063.82,1
+CUST_0211,Female,34,Chicago,54,Month-to-month,Credit card,75.73,3436.04,3,877.91,1
+CUST_0212,Male,42,Los Angeles,69,Two year,Bank transfer,92.46,5468.36,4,1132.81,1
+CUST_0213,Male,18,Houston,62,Month-to-month,Bank transfer,40.89,2717.99,4,533.58,0
+CUST_0214,Female,67,Chicago,27,One year,Electronic check,59.66,1404.31,5,698.83,1
+CUST_0215,Male,69,Chicago,47,Two year,Electronic check,71.28,3179.92,1,850.14,0
+CUST_0216,Female,19,Chicago,53,One year,Bank transfer,24.57,1379.33,2,297.98,0
+CUST_0217,Female,49,Houston,26,Two year,Mailed check,52.99,1259.19,3,655.54,0
+CUST_0218,Male,26,Phoenix,59,Two year,Credit card,36.82,2256.0,2,445.95,1
+CUST_0219,Male,44,New York,10,Month-to-month,Bank transfer,114.52,1145.73,0,1468.39,1
+CUST_0220,Male,60,New York,65,Two year,Mailed check,65.6,3488.53,10,852.18,0
+CUST_0221,Female,36,Los Angeles,2,Month-to-month,Credit card,21.67,44.06,8,260.16,0
+CUST_0222,Female,51,New York,13,One year,Electronic check,72.44,821.45,9,924.08,1
+CUST_0223,Male,37,New York,52,Two year,Mailed check,65.9,2991.47,3,842.69,1
+CUST_0224,Female,18,Chicago,49,Two year,Credit card,57.72,2666.51,10,647.12,1
+CUST_0225,Female,48,Phoenix,68,One year,Credit card,111.92,6613.04,9,1221.24,1
+CUST_0226,Female,55,New York,23,Month-to-month,Electronic check,112.88,2321.94,3,1422.9,0
+CUST_0227,Male,61,New York,21,Two year,Electronic check,76.4,1556.28,6,885.95,0
+CUST_0228,Female,39,Chicago,7,Two year,Credit card,29.77,181.22,1,376.46,0
+CUST_0229,Female,40,New York,35,Two year,Electronic check,98.35,3219.07,3,1284.33,1
+CUST_0230,Female,42,Chicago,32,Two year,Electronic check,91.31,2409.45,2,1157.93,1
+CUST_0231,Female,41,Houston,14,One year,Mailed check,29.15,441.93,7,321.97,1
+CUST_0232,Male,56,Chicago,14,Two year,Mailed check,22.63,287.09,1,287.01,0
+CUST_0233,Female,75,Los Angeles,50,Month-to-month,Bank transfer,97.92,4981.45,8,1191.95,1
+CUST_0234,Male,28,Chicago,35,One year,Electronic check,50.11,1662.54,1,574.38,1
+CUST_0235,Female,30,Chicago,32,One year,Mailed check,92.09,2795.83,9,1018.21,1
+CUST_0236,Male,56,Houston,43,Month-to-month,Electronic check,64.02,2557.92,10,737.58,1
+CUST_0237,Male,65,Chicago,23,Two year,Mailed check,116.46,2921.31,4,1434.67,0
+CUST_0238,Male,54,Houston,36,Month-to-month,Bank transfer,101.65,3358.89,1,1242.3,0
+CUST_0239,Female,70,Los Angeles,57,One year,Electronic check,99.77,5967.73,1,1238.66,1
+CUST_0240,Female,46,Phoenix,20,Two year,Credit card,91.52,1897.62,1,1093.68,1
+CUST_0241,Female,58,Los Angeles,47,Month-to-month,Credit card,90.16,4422.65,9,997.39,1
+CUST_0242,Male,24,Houston,52,Month-to-month,Electronic check,116.68,5457.46,6,1287.76,1
+CUST_0243,Female,27,Houston,51,One year,Credit card,66.31,3394.89,8,874.93,1
+CUST_0244,Female,37,Chicago,15,One year,Mailed check,103.13,1576.41,5,1226.5,1
+CUST_0245,Male,22,Chicago,13,One year,Credit card,63.82,837.15,5,696.1,0
+CUST_0246,Female,29,Los Angeles,22,Two year,Mailed check,112.99,2540.83,8,1263.72,1
+CUST_0247,Female,19,Houston,24,Two year,Credit card,38.64,924.76,6,474.26,1
+CUST_0248,Female,54,Chicago,28,Month-to-month,Bank transfer,40.58,1165.44,1,516.13,0
+CUST_0249,Female,51,Phoenix,59,Two year,Credit card,31.4,1854.84,7,362.74,0
+CUST_0250,Male,70,Los Angeles,45,Two year,Electronic check,55.2,2328.4,2,689.69,1
+CUST_0251,Male,62,Phoenix,16,Month-to-month,Mailed check,43.86,586.03,5,527.46,1
+CUST_0252,Male,29,Chicago,55,Two year,Mailed check,38.58,2102.06,10,432.11,1
+CUST_0253,Female,26,Houston,7,Month-to-month,Mailed check,106.55,809.66,7,1359.21,0
+CUST_0254,Female,23,New York,54,Two year,Electronic check,91.01,4586.03,2,989.65,0
+CUST_0255,Male,54,Phoenix,29,Two year,Credit card,73.76,1819.17,7,933.37,1
+CUST_0256,Male,52,Houston,35,Month-to-month,Credit card,97.51,3573.2,5,1230.97,1
+CUST_0257,Male,34,Los Angeles,32,One year,Bank transfer,49.77,1751.58,7,640.5,1
+CUST_0258,Male,28,New York,45,Two year,Electronic check,106.1,4693.71,6,1181.33,1
+CUST_0259,Male,63,Los Angeles,69,One year,Mailed check,48.11,3192.22,5,553.0,1
+CUST_0260,Male,62,Houston,8,Month-to-month,Mailed check,119.25,1011.35,2,1359.36,1
+CUST_0261,Male,42,Houston,19,One year,Electronic check,77.74,1300.72,6,853.68,0
+CUST_0262,Female,18,New York,48,Two year,Mailed check,65.47,2974.16,9,721.71,0
+CUST_0263,Male,35,Phoenix,28,One year,Mailed check,116.81,3425.89,7,1493.77,1
+CUST_0264,Male,24,Los Angeles,44,Two year,Mailed check,109.42,4952.54,0,1387.59,1
+CUST_0265,Female,62,New York,59,Month-to-month,Electronic check,20.07,1287.63,3,259.25,0
+CUST_0266,Male,28,Houston,33,Month-to-month,Credit card,28.24,931.32,10,331.85,1
+CUST_0267,Male,55,Chicago,13,Month-to-month,Credit card,20.11,246.54,2,242.26,0
+CUST_0268,Female,42,Chicago,55,Month-to-month,Electronic check,89.4,4638.26,3,1122.31,1
+CUST_0269,Male,59,Phoenix,18,Two year,Bank transfer,58.27,1095.02,2,649.29,0
+CUST_0270,Male,44,New York,57,Two year,Bank transfer,55.12,2714.29,2,686.12,0
+CUST_0271,Male,38,Phoenix,16,Month-to-month,Electronic check,78.96,1156.24,6,899.72,1
+CUST_0272,Female,31,Chicago,4,Two year,Credit card,104.79,418.12,4,1284.37,1
+CUST_0273,Male,58,Chicago,31,Two year,Electronic check,69.49,1796.21,7,762.34,0
+CUST_0274,Male,41,New York,17,Two year,Credit card,58.68,1049.13,6,729.92,0
+CUST_0275,Female,68,Houston,2,One year,Mailed check,46.22,75.06,0,555.37,0
+CUST_0276,Male,35,Los Angeles,11,Month-to-month,Electronic check,84.05,888.77,2,970.25,1
+CUST_0277,Male,61,New York,51,Two year,Bank transfer,78.64,4126.82,10,861.79,0
+CUST_0278,Male,56,New York,12,Month-to-month,Credit card,112.46,1126.57,9,1298.05,1
+CUST_0279,Male,51,Chicago,18,Two year,Bank transfer,90.15,1377.92,5,1143.03,0
+CUST_0280,Male,39,Houston,35,One year,Mailed check,93.29,2727.76,0,1068.43,1
+CUST_0281,Male,28,Los Angeles,66,One year,Credit card,56.01,3511.39,9,626.05,0
+CUST_0282,Male,48,Phoenix,6,One year,Mailed check,105.87,510.52,0,1240.71,1
+CUST_0283,Male,35,Los Angeles,29,Month-to-month,Bank transfer,52.18,1399.54,5,635.12,1
+CUST_0284,Female,74,Chicago,67,One year,Credit card,118.14,8597.87,1,1521.46,0
+CUST_0285,Female,54,Phoenix,71,One year,Mailed check,65.67,4246.09,4,825.8,1
+CUST_0286,Female,27,New York,26,Month-to-month,Electronic check,93.25,2337.14,3,1215.77,1
+CUST_0287,Female,24,New York,1,Month-to-month,Bank transfer,95.89,87.54,4,1157.54,1
+CUST_0288,Male,44,Phoenix,36,Two year,Credit card,29.3,1135.37,8,379.42,1
+CUST_0289,Male,55,Los Angeles,65,Two year,Electronic check,33.35,2267.44,1,365.17,0
+CUST_0290,Male,62,New York,34,Two year,Bank transfer,105.09,3851.09,6,1217.26,1
+CUST_0291,Male,24,Phoenix,18,Month-to-month,Electronic check,97.99,1720.45,2,1164.02,1
+CUST_0292,Male,23,Los Angeles,27,Month-to-month,Electronic check,65.19,1652.77,1,830.41,1
+CUST_0293,Male,43,New York,19,Two year,Mailed check,29.12,483.82,5,317.92,1
+CUST_0294,Male,47,New York,58,Month-to-month,Bank transfer,75.6,4231.49,1,962.34,1
+CUST_0295,Male,58,New York,17,Two year,Credit card,39.81,622.75,10,437.98,1
+CUST_0296,Male,23,Los Angeles,26,One year,Mailed check,110.25,2674.53,2,1223.12,0
+CUST_0297,Female,29,Houston,51,One year,Bank transfer,69.61,3247.71,6,787.66,1
+CUST_0298,Male,36,New York,5,One year,Electronic check,81.41,400.98,10,959.72,1
+CUST_0299,Male,33,Houston,50,Two year,Electronic check,33.72,1449.69,8,444.63,0
+CUST_0300,Female,50,Phoenix,62,One year,Bank transfer,74.45,4363.89,9,873.46,1
+CUST_0301,Male,69,Los Angeles,4,One year,Credit card,109.58,453.03,0,1322.7,0
+CUST_0302,Female,66,Chicago,32,Month-to-month,Bank transfer,85.69,2412.92,0,1043.85,0
+CUST_0303,Male,55,Phoenix,23,Month-to-month,Bank transfer,43.66,899.14,5,545.24,1
+CUST_0304,Female,23,New York,64,Month-to-month,Electronic check,74.21,4049.69,0,842.9,1
+CUST_0305,Male,69,New York,26,One year,Electronic check,100.64,2360.81,2,1101.3,1
+CUST_0306,Male,55,Houston,10,Month-to-month,Mailed check,57.36,620.97,6,665.82,1
+CUST_0307,Male,68,Houston,41,One year,Electronic check,37.42,1673.26,9,424.18,0
+CUST_0308,Male,43,Phoenix,38,Two year,Credit card,32.73,1266.93,9,356.03,0
+CUST_0309,Male,40,Chicago,64,One year,Mailed check,34.06,2231.29,3,381.57,0
+CUST_0310,Male,40,Houston,2,One year,Mailed check,46.52,81.4,1,590.29,0
+CUST_0311,Female,74,Phoenix,54,One year,Bank transfer,116.91,6725.8,7,1361.18,1
+CUST_0312,Male,36,Chicago,21,Month-to-month,Bank transfer,65.13,1422.11,0,753.22,0
+CUST_0313,Male,39,Houston,49,Two year,Bank transfer,36.09,1454.52,1,475.11,0
+CUST_0314,Female,30,Chicago,56,One year,Electronic check,35.71,1660.56,3,445.42,0
+CUST_0315,Female,71,New York,31,One year,Electronic check,29.59,841.95,8,330.48,1
+CUST_0316,Male,58,Chicago,62,One year,Mailed check,39.97,2001.64,2,525.4,0
+CUST_0317,Female,59,Chicago,61,Two year,Bank transfer,68.91,4196.41,1,808.32,0
+CUST_0318,Male,32,New York,58,One year,Electronic check,24.46,1322.1,4,297.29,1
+CUST_0319,Female,53,Phoenix,70,Month-to-month,Mailed check,61.4,4413.78,3,787.02,0
+CUST_0320,Male,50,New York,31,Two year,Mailed check,67.63,1726.88,0,876.56,0
+CUST_0321,Female,69,Los Angeles,23,Month-to-month,Bank transfer,114.91,2246.89,3,1275.83,1
+CUST_0322,Female,23,Phoenix,34,One year,Mailed check,51.97,1799.02,1,630.67,0
+CUST_0323,Male,68,New York,2,One year,Credit card,98.66,194.74,8,1092.17,1
+CUST_0324,Female,34,New York,37,One year,Bank transfer,106.75,4202.69,6,1320.66,1
+CUST_0325,Female,62,Los Angeles,36,One year,Credit card,60.3,2139.27,10,656.85,0
+CUST_0326,Male,39,Los Angeles,61,One year,Bank transfer,112.08,7309.37,0,1294.11,0
+CUST_0327,Male,35,Houston,39,Two year,Bank transfer,117.42,4272.26,5,1385.59,1
+CUST_0328,Female,70,Phoenix,53,Month-to-month,Mailed check,94.09,5125.64,5,1132.53,1
+CUST_0329,Male,19,Los Angeles,18,Month-to-month,Credit card,98.05,1689.51,9,1104.3,0
+CUST_0330,Male,35,New York,59,One year,Bank transfer,25.06,1342.68,3,320.18,0
+CUST_0331,Female,55,New York,48,Two year,Electronic check,68.88,3087.47,7,801.72,1
+CUST_0332,Male,67,Chicago,4,Month-to-month,Mailed check,58.66,199.18,9,754.2,1
+CUST_0333,Male,18,Los Angeles,66,One year,Electronic check,22.01,1502.18,10,285.86,0
+CUST_0334,Male,45,Houston,40,One year,Electronic check,91.27,3697.57,4,1172.25,1
+CUST_0335,Female,18,Phoenix,67,Two year,Electronic check,102.43,6307.92,1,1351.94,0
+CUST_0336,Female,35,Los Angeles,39,Two year,Bank transfer,88.44,3257.81,5,1024.16,1
+CUST_0337,Male,43,Houston,67,Two year,Electronic check,96.55,6921.06,9,1116.79,1
+CUST_0338,Female,55,Los Angeles,34,Two year,Mailed check,110.69,3467.58,0,1459.71,0
+CUST_0339,Male,74,Chicago,46,Two year,Bank transfer,70.73,3428.06,10,794.63,1
+CUST_0340,Female,65,Chicago,43,One year,Electronic check,85.44,3184.1,3,1008.97,0
+CUST_0341,Male,55,Phoenix,60,Two year,Credit card,105.12,5936.09,10,1373.53,1
+CUST_0342,Female,26,Los Angeles,49,Month-to-month,Electronic check,72.98,3304.0,2,848.2,0
+CUST_0343,Female,29,Los Angeles,24,One year,Bank transfer,97.89,2223.14,10,1206.28,1
+CUST_0344,Female,26,Houston,21,Two year,Mailed check,68.96,1490.26,1,816.55,1
+CUST_0345,Male,18,New York,1,One year,Bank transfer,23.77,20.44,5,299.89,0
+CUST_0346,Male,24,New York,29,One year,Electronic check,89.35,2340.6,2,1072.92,1
+CUST_0347,Female,39,Houston,38,One year,Electronic check,65.59,2382.97,8,848.15,0
+CUST_0348,Male,19,New York,25,Month-to-month,Bank transfer,36.49,977.99,6,413.74,0
+CUST_0349,Male,42,Phoenix,16,Two year,Credit card,56.66,902.17,0,646.71,0
+CUST_0350,Female,44,Los Angeles,14,One year,Bank transfer,85.36,963.11,1,999.79,1
+CUST_0351,Female,51,New York,2,One year,Credit card,50.11,100.07,10,616.09,1
+CUST_0352,Male,56,Chicago,37,Month-to-month,Mailed check,31.4,966.48,3,397.75,0
+CUST_0353,Male,62,New York,38,One year,Mailed check,36.04,1320.82,3,417.83,1
+CUST_0354,Male,64,Houston,20,Two year,Electronic check,114.94,2376.63,1,1269.29,1
+CUST_0355,Female,73,Houston,34,Month-to-month,Credit card,66.43,1874.53,2,853.32,1
+CUST_0356,Female,72,Houston,13,Month-to-month,Electronic check,105.12,1458.24,0,1302.65,1
+CUST_0357,Female,43,Houston,12,One year,Mailed check,57.26,620.34,1,750.65,1
+CUST_0358,Female,72,Phoenix,22,Month-to-month,Mailed check,31.31,694.92,0,345.94,0
+CUST_0359,Male,19,Houston,24,Two year,Mailed check,81.13,2012.83,9,1047.54,1
+CUST_0360,Male,34,Chicago,15,Two year,Credit card,108.76,1520.8,1,1256.63,0
+CUST_0361,Male,60,New York,56,Two year,Bank transfer,86.17,4220.27,5,1063.28,1
+CUST_0362,Female,22,New York,65,One year,Bank transfer,104.88,7195.97,2,1213.41,1
+CUST_0363,Male,23,Houston,71,One year,Mailed check,84.33,5514.32,3,1000.66,0
+CUST_0364,Male,19,New York,41,Month-to-month,Electronic check,31.87,1240.31,10,375.05,1
+CUST_0365,Female,39,Chicago,66,One year,Mailed check,76.23,5012.96,7,974.28,0
+CUST_0366,Female,32,Phoenix,47,Month-to-month,Electronic check,91.59,3591.04,10,1064.21,0
+CUST_0367,Female,70,Phoenix,14,Two year,Bank transfer,24.58,292.24,2,309.27,0
+CUST_0368,Female,47,New York,25,Month-to-month,Credit card,32.07,846.37,3,401.53,1
+CUST_0369,Female,26,Phoenix,58,One year,Mailed check,65.74,3724.44,8,710.68,0
+CUST_0370,Female,29,Phoenix,66,Two year,Mailed check,98.11,6948.31,9,1251.55,1
+CUST_0371,Female,35,Los Angeles,54,One year,Bank transfer,117.95,6845.55,3,1546.63,0
+CUST_0372,Male,37,Los Angeles,53,Two year,Bank transfer,80.25,4533.67,8,972.21,1
+CUST_0373,Female,63,New York,38,Two year,Electronic check,88.66,3626.33,2,1165.03,1
+CUST_0374,Female,63,Houston,72,One year,Credit card,68.04,4757.75,10,844.93,0
+CUST_0375,Male,60,Chicago,67,Month-to-month,Electronic check,30.65,1877.48,0,345.72,0
+CUST_0376,Male,31,Phoenix,19,Two year,Bank transfer,103.94,1989.04,4,1130.61,0
+CUST_0377,Female,62,Chicago,72,Two year,Credit card,58.89,4041.97,4,642.65,0
+CUST_0378,Female,71,Phoenix,2,Month-to-month,Bank transfer,94.37,162.49,7,1225.64,1
+CUST_0379,Male,22,Houston,25,Month-to-month,Credit card,49.42,1054.16,10,647.89,0
+CUST_0380,Male,55,New York,55,One year,Bank transfer,47.91,2316.93,2,518.08,0
+CUST_0381,Female,57,New York,42,Two year,Electronic check,79.69,3454.41,10,918.25,0
+CUST_0382,Female,68,New York,68,Two year,Electronic check,42.0,2442.34,1,469.66,0
+CUST_0383,Female,41,Phoenix,29,One year,Credit card,108.34,3138.72,5,1226.87,0
+CUST_0384,Female,57,Houston,15,Two year,Credit card,86.89,1216.94,10,989.26,1
+CUST_0385,Female,51,New York,50,One year,Electronic check,45.66,2322.25,0,549.49,0
+CUST_0386,Male,28,Los Angeles,25,Two year,Mailed check,52.03,1072.73,1,628.51,0
+CUST_0387,Female,59,Chicago,14,Month-to-month,Credit card,40.56,595.45,6,510.75,1
+CUST_0388,Female,53,Houston,12,Month-to-month,Mailed check,27.32,279.78,4,332.76,1
+CUST_0389,Male,42,Phoenix,58,Two year,Credit card,83.02,4477.65,0,920.19,1
+CUST_0390,Female,68,Houston,10,Two year,Mailed check,55.77,530.29,4,642.65,1
+CUST_0391,Female,65,Los Angeles,4,One year,Electronic check,67.4,258.83,2,856.81,0
+CUST_0392,Female,27,Phoenix,48,Month-to-month,Credit card,115.74,4463.0,8,1261.6,1
+CUST_0393,Male,31,Los Angeles,40,One year,Bank transfer,41.01,1677.19,5,532.04,0
+CUST_0394,Female,29,Phoenix,29,Two year,Credit card,81.69,2074.83,1,1039.03,0
+CUST_0395,Male,64,Los Angeles,38,Two year,Credit card,87.17,2899.09,3,1043.36,1
+CUST_0396,Male,49,Phoenix,37,One year,Electronic check,81.95,3244.51,5,949.64,0
+CUST_0397,Female,33,Chicago,41,Month-to-month,Bank transfer,115.87,4040.88,5,1449.45,1
+CUST_0398,Male,67,Chicago,43,One year,Bank transfer,107.79,4351.56,5,1290.11,1
+CUST_0399,Male,22,Phoenix,69,Two year,Mailed check,39.64,2790.04,10,435.29,1
+CUST_0400,Female,75,Houston,28,Two year,Bank transfer,110.63,2990.7,8,1320.15,1
+CUST_0401,Male,43,Phoenix,38,One year,Bank transfer,33.39,1205.81,1,400.85,0
+CUST_0402,Female,60,New York,58,Month-to-month,Bank transfer,35.92,2020.67,9,451.38,0
+CUST_0403,Female,20,Houston,63,Two year,Mailed check,43.17,2391.46,3,487.66,0
+CUST_0404,Female,38,Chicago,59,Month-to-month,Bank transfer,108.16,5181.55,10,1350.81,1
+CUST_0405,Male,75,Phoenix,49,Month-to-month,Mailed check,85.37,3804.93,10,1027.85,1
+CUST_0406,Female,74,Los Angeles,46,Two year,Bank transfer,101.72,4227.63,7,1100.19,0
+CUST_0407,Male,29,Los Angeles,10,Month-to-month,Mailed check,71.45,631.79,2,833.77,0
+CUST_0408,Female,48,New York,43,Month-to-month,Bank transfer,92.03,3737.48,7,1124.41,0
+CUST_0409,Male,58,Los Angeles,6,Two year,Electronic check,32.79,192.35,2,357.22,0
+CUST_0410,Female,58,New York,24,Month-to-month,Bank transfer,71.66,1585.07,9,925.02,0
+CUST_0411,Male,28,Phoenix,58,Month-to-month,Electronic check,80.65,4403.7,7,1031.75,0
+CUST_0412,Male,56,New York,22,Two year,Credit card,92.42,1835.61,7,1013.41,1
+CUST_0413,Male,44,Phoenix,26,Month-to-month,Credit card,72.27,2015.82,10,885.54,1
+CUST_0414,Female,52,Phoenix,12,Month-to-month,Mailed check,68.22,686.92,9,883.63,0
+CUST_0415,Male,32,Houston,48,One year,Bank transfer,107.48,5206.98,6,1364.45,1
+CUST_0416,Male,36,New York,33,Two year,Credit card,67.71,1943.4,1,873.75,1
+CUST_0417,Male,31,Los Angeles,67,Two year,Mailed check,31.78,1708.0,10,404.57,1
+CUST_0418,Male,41,Houston,33,Two year,Mailed check,46.13,1462.66,9,528.71,0
+CUST_0419,Male,37,New York,23,Two year,Bank transfer,57.02,1267.49,4,662.94,0
+CUST_0420,Male,31,Los Angeles,58,Two year,Mailed check,98.31,6185.36,1,1156.26,1
+CUST_0421,Female,56,New York,1,One year,Credit card,100.44,105.16,7,1106.0,1
+CUST_0422,Male,51,Houston,50,One year,Mailed check,113.07,5202.31,10,1414.26,1
+CUST_0423,Male,36,Phoenix,2,Month-to-month,Bank transfer,40.17,80.1,8,437.08,1
+CUST_0424,Female,23,Houston,5,One year,Bank transfer,55.97,278.87,2,709.21,1
+CUST_0425,Female,53,Chicago,67,One year,Electronic check,21.54,1459.18,1,270.17,0
+CUST_0426,Male,54,Phoenix,29,Month-to-month,Credit card,80.64,2007.32,6,921.45,1
+CUST_0427,Female,34,Houston,65,Two year,Mailed check,49.43,3483.17,8,630.31,0
+CUST_0428,Female,61,New York,32,One year,Electronic check,95.75,3334.77,7,1240.12,0
+CUST_0429,Female,61,Phoenix,9,Two year,Credit card,58.27,543.62,3,661.47,1
+CUST_0430,Female,65,Chicago,34,One year,Electronic check,44.83,1261.91,10,492.34,0
+CUST_0431,Male,30,Chicago,28,One year,Bank transfer,109.43,2698.57,10,1375.43,1
+CUST_0432,Male,40,Houston,30,Month-to-month,Credit card,40.28,1057.24,9,510.33,1
+CUST_0433,Female,57,Houston,70,One year,Bank transfer,115.8,8546.99,5,1387.47,0
+CUST_0434,Male,26,Phoenix,66,Month-to-month,Electronic check,48.03,2747.19,9,579.33,1
+CUST_0435,Male,25,New York,51,Two year,Bank transfer,106.04,5585.27,7,1277.11,1
+CUST_0436,Female,73,Houston,49,One year,Electronic check,78.1,3435.14,9,878.56,1
+CUST_0437,Female,62,Los Angeles,47,One year,Bank transfer,38.39,1672.94,6,448.25,1
+CUST_0438,Male,53,Houston,30,One year,Credit card,101.42,3092.03,3,1303.77,1
+CUST_0439,Female,51,Chicago,23,Two year,Credit card,62.15,1201.23,10,778.7,0
+CUST_0440,Female,70,Chicago,51,One year,Electronic check,29.9,1294.64,3,357.12,0
+CUST_0441,Male,40,Phoenix,47,Month-to-month,Bank transfer,56.03,2547.16,4,660.49,1
+CUST_0442,Female,67,Houston,37,Two year,Bank transfer,55.51,2057.89,7,659.05,1
+CUST_0443,Male,58,New York,22,Two year,Bank transfer,84.06,1994.62,6,1023.17,0
+CUST_0444,Female,63,Chicago,44,One year,Mailed check,42.82,1686.37,4,524.67,0
+CUST_0445,Male,64,Los Angeles,53,Month-to-month,Bank transfer,36.73,2056.22,2,455.04,0
+CUST_0446,Male,53,New York,51,Month-to-month,Electronic check,30.3,1265.81,7,329.16,1
+CUST_0447,Male,37,Los Angeles,20,Month-to-month,Bank transfer,28.43,613.79,6,323.92,1
+CUST_0448,Female,73,Phoenix,4,One year,Mailed check,23.52,85.34,5,280.39,0
+CUST_0449,Female,55,Phoenix,18,Two year,Electronic check,116.95,2124.65,2,1391.2,0
+CUST_0450,Female,46,New York,45,One year,Credit card,68.17,2663.15,1,796.08,1
+CUST_0451,Female,36,Houston,67,One year,Electronic check,101.54,7173.16,5,1227.03,0
+CUST_0452,Female,32,Houston,2,Month-to-month,Bank transfer,96.59,200.79,9,1170.26,1
+CUST_0453,Female,32,Chicago,21,One year,Electronic check,91.49,1909.37,6,1005.48,1
+CUST_0454,Female,36,Phoenix,53,Month-to-month,Mailed check,38.8,1687.36,2,478.35,0
+CUST_0455,Male,19,Houston,25,Month-to-month,Credit card,52.06,1100.61,8,683.74,1
+CUST_0456,Female,39,Houston,30,One year,Credit card,29.02,700.33,3,335.12,0
+CUST_0457,Female,21,Los Angeles,43,One year,Bank transfer,28.02,1235.19,2,354.78,1
+CUST_0458,Female,67,Los Angeles,33,Two year,Credit card,101.73,3519.83,1,1159.47,0
+CUST_0459,Female,60,Chicago,26,Month-to-month,Bank transfer,66.08,1771.85,8,788.65,0
+CUST_0460,Male,34,Los Angeles,6,One year,Credit card,94.47,546.91,1,1165.05,1
+CUST_0461,Male,68,New York,31,One year,Credit card,83.29,2316.96,2,1016.41,1
+CUST_0462,Female,33,New York,61,Month-to-month,Credit card,88.84,4587.37,1,1066.06,0
+CUST_0463,Female,26,Houston,46,One year,Bank transfer,84.46,3925.56,1,959.33,0
+CUST_0464,Female,34,Phoenix,3,Month-to-month,Mailed check,88.92,242.07,2,1063.9,1
+CUST_0465,Male,64,New York,25,One year,Bank transfer,76.67,1846.0,5,878.7,0
+CUST_0466,Male,47,New York,58,Month-to-month,Electronic check,49.57,2527.19,5,627.67,0
+CUST_0467,Male,70,Phoenix,31,One year,Electronic check,52.07,1322.01,8,586.08,0
+CUST_0468,Male,51,Los Angeles,42,Two year,Credit card,60.98,2296.35,1,668.34,0
+CUST_0469,Female,54,New York,26,Two year,Electronic check,30.71,684.67,0,393.31,0
+CUST_0470,Female,59,New York,29,One year,Electronic check,80.6,1919.62,3,1050.07,0
+CUST_0471,Male,68,New York,72,Two year,Electronic check,94.35,7249.22,5,1032.18,0
+CUST_0472,Male,24,Phoenix,10,Two year,Bank transfer,114.46,1245.53,1,1299.63,1
+CUST_0473,Female,67,New York,23,Two year,Bank transfer,75.84,1687.53,1,924.02,0
+CUST_0474,Female,28,Chicago,24,Two year,Electronic check,75.0,1712.53,10,989.72,1
+CUST_0475,Female,56,Chicago,48,Month-to-month,Mailed check,61.23,2909.57,5,744.04,1
+CUST_0476,Female,36,New York,58,Two year,Electronic check,115.98,5381.87,0,1257.12,1
+CUST_0477,Male,53,New York,29,Two year,Credit card,41.48,1075.98,4,503.37,0
+CUST_0478,Female,74,New York,59,Two year,Mailed check,55.57,2759.04,5,633.48,1
+CUST_0479,Male,29,Phoenix,28,One year,Electronic check,93.43,2660.71,7,1194.19,1
+CUST_0480,Female,67,Houston,5,Month-to-month,Credit card,93.08,452.78,1,1211.2,1
+CUST_0481,Male,58,Chicago,30,Two year,Bank transfer,94.77,2999.03,0,1110.51,1
+CUST_0482,Male,61,Los Angeles,42,Two year,Mailed check,70.24,2555.47,0,926.72,0
+CUST_0483,Female,23,Chicago,38,One year,Credit card,98.64,3165.1,5,1200.59,1
+CUST_0484,Female,66,Phoenix,52,Month-to-month,Bank transfer,70.18,3766.68,2,838.95,1
+CUST_0485,Male,33,New York,72,Month-to-month,Mailed check,81.6,5996.82,3,933.42,0
+CUST_0486,Female,56,Phoenix,55,Two year,Mailed check,56.53,2665.0,5,613.81,1
+CUST_0487,Male,30,New York,19,Two year,Credit card,64.05,1310.98,3,749.2,0
+CUST_0488,Female,18,Houston,32,One year,Credit card,114.89,3963.31,4,1432.12,1
+CUST_0489,Male,52,New York,43,Two year,Mailed check,40.9,1690.82,3,515.37,0
+CUST_0490,Male,30,New York,68,Two year,Mailed check,24.35,1409.24,4,299.09,1
+CUST_0491,Female,73,Los Angeles,35,Month-to-month,Mailed check,86.3,3243.6,5,935.99,0
+CUST_0492,Female,49,Phoenix,66,Two year,Credit card,117.66,6444.49,5,1420.83,1
+CUST_0493,Female,49,Chicago,6,One year,Electronic check,44.74,257.39,5,563.12,1
+CUST_0494,Male,69,Phoenix,31,Month-to-month,Electronic check,119.6,4054.54,4,1471.31,0
+CUST_0495,Male,26,Houston,29,Month-to-month,Bank transfer,35.17,1090.46,10,441.44,1
+CUST_0496,Male,39,Phoenix,20,One year,Bank transfer,62.65,1119.82,9,758.15,1
+CUST_0497,Male,26,Phoenix,18,One year,Bank transfer,50.9,926.77,8,671.35,0
+CUST_0498,Male,29,Chicago,41,One year,Mailed check,26.78,1053.94,1,343.18,1
+CUST_0499,Male,65,Los Angeles,53,One year,Credit card,50.33,2730.66,10,561.92,1
+CUST_0500,Female,32,Los Angeles,35,Month-to-month,Mailed check,80.56,2773.66,9,1002.95,1

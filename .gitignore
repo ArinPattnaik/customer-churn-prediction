@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Hypothesis test cache
+.hypothesis/
+
+# Pytest cache
+.pytest_cache/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Kiro
+.kiro/
+
+# Artifacts (large model files — keep .gitkeep)
+artifacts/**
+!artifacts/.gitkeep
+
+# Dashboards output
+dashboards/**
+!dashboards/.gitkeep
+
+# Data files (keep .gitkeep, include sample CSV)
+data/**
+!data/.gitkeep
+!data/customers.csv

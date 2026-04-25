@@ -48,6 +48,18 @@ logger = logging.getLogger(__name__)
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
 
+
+@app.after_request
+def add_cors_headers(response):
+    """Add CORS headers to every response for the Vercel frontend."""
+    origin = request.headers.get("Origin", "")
+    response.headers["Access-Control-Allow-Origin"] = origin or "*"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type"
+    if request.method == "OPTIONS":
+        response.status_code = 204
+    return response
+
 # ── Global state ─────────────────────────────────────────────────────
 _state = {
     "model": None,

@@ -142,11 +142,19 @@ def main() -> None:
     latest_version = _find_latest_artifact_dir(artifacts_root)
 
     if latest_version is None:
-        st.info("No model artifacts found. Training a model on sample data — this may take a minute...")
-        _auto_train(config_dir, artifacts_root)
+        with st.spinner("No model found — training on sample data. This takes about a minute on first launch..."):
+            try:
+                _auto_train(config_dir, artifacts_root)
+            except Exception as exc:
+                st.error(
+                    f"Auto-training failed: {exc}\n\n"
+                    "Please run the pipeline manually:\n"
+                    "```\npython main.py --input data/customers.csv\n```"
+                )
+                return
         latest_version = _find_latest_artifact_dir(artifacts_root)
         if latest_version is None:
-            st.error("Auto-training failed. Please run the pipeline manually.")
+            st.error("Auto-training completed but no artifacts were created.")
             return
         st.rerun()
 

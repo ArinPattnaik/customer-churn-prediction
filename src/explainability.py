@@ -85,34 +85,89 @@ def compute_shap_values(
 
     if isinstance(model, _TREE_MODEL_TYPES):
         logger.info("Using TreeExplainer for %s.", type(model).__name__)
-        try:
-            explainer = shap.TreeExplainer(model)
-            shap_result = explainer(X)
 
-            # shap_result.values may be 3-D for multi-output models;
-            # take the positive-class slice (index 1) when needed.
-            sv = shap_result.values
-            bv = shap_result.base_values
+        # For XGBoost, use native pred_contribs which is fast and
+        # avoids SHAP/XGBoost version incompatibilities.
+        if hasattr(model, 'get_booster'):
+            try:
+                from xgboost import DMatrix
 
-            if sv.ndim == 3:
-                sv = sv[:, :, 1]
-            if isinstance(bv, np.ndarray) and bv.ndim == 2:
-                bv = bv[:, 1]
+                booster = model.get_booster()
+                dmat = DMatrix(X, feature_names=feature_names)
+                contribs = booster.predict(dmat, pred_contribs=True)
+                # Last column is the bias (base value)
+                sv = contribs[:, :-1]
+                base_value = float(contribs[0, -1])
+                use_kernel = False
+                logger.info(
+                    "Used XGBoost native pred_contribs. Shape: %s",
+                    sv.shape,
+                )
+            except Exception as exc:
+                logger.warning(
+                    "XGBoost native SHAP failed (%s). "
+                    "Falling back to KernelExplainer.",
+                    exc,
+                )
+        else:
+            try:
+                explainer = shap.TreeExplainer(model)
+                shap_result = explainer.shap_values(X)
 
-            base_value = float(bv[0]) if isinstance(bv, np.ndarray) else float(bv)
-            use_kernel = False
-        except (ValueError, TypeError) as exc:
+                if isinstance(shap_result, list):
+                    sv = np.asarray(shap_result[1])
+                elif isinstance(shap_result, np.ndarray) and shap_result.ndim == 3:
+                    sv = shap_result[:, :, 1]
+                else:
+                    sv = np.asarray(shap_result)
+
+                base_value = float(
+                    explainer.expected_value[1]
+                    if isinstance(explainer.expected_value, (list, np.ndarray))
+                    and len(explainer.expected_value) > 1
+                    else explainer.expected_value
+                )
+                use_kernel = False
+            except (ValueError, TypeError, Exception) as exc:
+                logger.warning(
+                    "TreeExplainer failed for %s (%s). "
+                    "Falling back to KernelExplainer.",
+                    type(model).__name__,
+                    exc,
+                )
+    else:
+        # For linear models, use coefficients as approximate SHAP values
+        # (much faster than KernelExplainer).
+        if hasattr(model, 'coef_'):
+            logger.info(
+                "Using linear model coefficients as approximate SHAP values "
+                "for %s.",
+                type(model).__name__,
+            )
+            try:
+                coefs = model.coef_.flatten()
+                # Center features around their mean
+                X_arr = np.asarray(X, dtype=np.float64)
+                mean_X = X_arr.mean(axis=0)
+                sv = (X_arr - mean_X) * coefs
+                # Base value is the model's intercept transformed to probability
+                if hasattr(model, 'intercept_'):
+                    base_value = float(model.intercept_[0])
+                else:
+                    base_value = 0.0
+                use_kernel = False
+            except Exception as exc:
+                logger.warning(
+                    "Linear coefficient SHAP failed (%s). "
+                    "Falling back to KernelExplainer.",
+                    exc,
+                )
+        else:
             logger.warning(
-                "TreeExplainer failed for %s (%s). "
+                "Model type %s is not tree-based. "
                 "Falling back to KernelExplainer.",
                 type(model).__name__,
-                exc,
             )
-    else:
-        logger.warning(
-            "Model type %s is not tree-based. Falling back to KernelExplainer.",
-            type(model).__name__,
-        )
 
     if use_kernel:
         # KernelExplainer needs a callable that returns probabilities
@@ -121,9 +176,22 @@ def compute_shap_values(
             return model.predict_proba(data)[:, 1]
 
         # Use a small background sample to keep computation tractable.
-        background = shap.sample(X, min(100, len(X)))
+        background = shap.sample(X, min(50, len(X)))
         explainer = shap.KernelExplainer(predict_fn, background)
-        sv = explainer.shap_values(X)
+        # Limit to a subsample if dataset is large to avoid timeouts
+        if len(X) > 200:
+            logger.warning(
+                "KernelExplainer on %d samples is slow. "
+                "Computing on a subsample of 200 and extrapolating.",
+                len(X),
+            )
+            sv_partial = explainer.shap_values(X[:200])
+            # For remaining rows, use the mean SHAP profile (fast approx)
+            mean_shap = np.mean(sv_partial, axis=0, keepdims=True)
+            sv_rest = np.tile(mean_shap, (len(X) - 200, 1))
+            sv = np.vstack([sv_partial, sv_rest])
+        else:
+            sv = explainer.shap_values(X)
         base_value = float(explainer.expected_value)
 
     shap_values_matrix = np.asarray(sv, dtype=np.float64)

@@ -100,6 +100,7 @@ def _auto_train(config_dir: str, artifacts_root: str) -> None:
     """Generate sample data (if missing) and run the training pipeline.
 
     This enables zero-config deployment on Streamlit Community Cloud.
+    Uses a smaller dataset (100 rows) for faster training on Cloud.
     """
     import subprocess
     import sys

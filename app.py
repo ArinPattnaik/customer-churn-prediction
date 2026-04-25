@@ -96,6 +96,32 @@ def load_config(config_dir: str):
     return schema_config, thresholds_config
 
 
+def _auto_train(config_dir: str, artifacts_root: str) -> None:
+    """Generate sample data (if missing) and run the training pipeline.
+
+    This enables zero-config deployment on Streamlit Community Cloud.
+    """
+    import subprocess
+    import sys
+
+    data_path = os.path.join("data", "customers.csv")
+    if not os.path.exists(data_path):
+        subprocess.run(
+            [sys.executable, "scripts/generate_sample_data.py"],
+            check=True,
+        )
+
+    subprocess.run(
+        [
+            sys.executable, "main.py",
+            "--input", data_path,
+            "--config-dir", config_dir,
+            "--output-dir", artifacts_root,
+        ],
+        check=True,
+    )
+
+
 # ── Main application ─────────────────────────────────────────────────
 
 def main() -> None:
@@ -116,11 +142,13 @@ def main() -> None:
     latest_version = _find_latest_artifact_dir(artifacts_root)
 
     if latest_version is None:
-        st.warning(
-            "No model artifacts found. Please run the training pipeline first "
-            "(`python main.py --input <csv>`) to generate model artifacts."
-        )
-        return
+        st.info("No model artifacts found. Training a model on sample data — this may take a minute...")
+        _auto_train(config_dir, artifacts_root)
+        latest_version = _find_latest_artifact_dir(artifacts_root)
+        if latest_version is None:
+            st.error("Auto-training failed. Please run the pipeline manually.")
+            return
+        st.rerun()
 
     st.sidebar.success(f"Model loaded from: `{os.path.basename(latest_version)}`")
 

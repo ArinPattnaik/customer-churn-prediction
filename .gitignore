@@ -31,9 +31,9 @@ Thumbs.db
 # Kiro
 .kiro/
 
-# Artifacts (large model files — keep .gitkeep)
-artifacts/**
-!artifacts/.gitkeep
+# Artifacts — include the latest trained model for Streamlit Cloud
+# artifacts/**
+# !artifacts/.gitkeep
 
 # Dashboards output
 dashboards/**

@@ -1,0 +1,21 @@
+feature_name,mean_abs_shap
+num__monthly_charges,0.11979101478467119
+num__num_support_tickets,0.07933213360607004
+num__total_charges,0.0355127656197402
+cat__contract_type_Month-to-month,0.035392578967078814
+num__tenure_months,0.0300403170353269
+cat__contract_type_One year,0.020674645120360893
+cat__location_New York,0.016371364154858882
+cat__payment_method_Credit card,0.01583130312093979
+num__age,0.014185046695091484
+cat__payment_method_Electronic check,0.012553114392382145
+cat__gender_Female,0.005318374896665544
+cat__location_Los Angeles,0.004308838743343411
+cat__contract_type_Two year,0.004075458378147377
+cat__payment_method_Bank transfer,0.002993315145935132
+num__annual_revenue,0.0012353951798509618
+cat__payment_method_Mailed check,0.0011250734623068311
+cat__gender_Male,3.617242700699043e-05
+cat__location_Houston,1.3444843257127803e-05
+cat__location_Chicago,0.0
+cat__location_Phoenix,0.0

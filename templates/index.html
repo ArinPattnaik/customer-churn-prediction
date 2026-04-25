@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChurnGuard — Customer Churn Prediction</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+        <span class="brand-icon">🛡️</span>
+        <span class="brand-text">ChurnGuard</span>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-section="dashboard">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            <span>Dashboard</span>
+        </a>
+        <a href="#" class="nav-item" data-section="customers">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>Customers</span>
+        </a>
+        <a href="#" class="nav-item" data-section="explainability">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            <span>Explainability</span>
+        </a>
+    </nav>
+
+    <div class="sidebar-footer">
+        <div class="model-badge" id="modelBadge">
+            <div class="model-badge-dot"></div>
+            <span>Loading model...</span>
+        </div>
+    </div>
+</aside>
+
+<!-- Main Content -->
+<main class="main-content">
+
+    <!-- Top Bar -->
+    <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle sidebar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="topbar-title">
+            <h1 id="pageTitle">Dashboard</h1>
+            <p class="topbar-subtitle" id="pageSubtitle">Overview of churn risk and revenue impact</p>
+        </div>
+        <div class="topbar-actions">
+            <label class="upload-btn" for="csvUpload">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                Upload CSV
+            </label>
+            <input type="file" id="csvUpload" accept=".csv" hidden>
+            <button class="btn btn-primary" id="demoBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Demo Mode
+            </button>
+        </div>
+    </header>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Scoring customers & computing explanations...</p>
+        </div>
+    </div>
+
+    <!-- Welcome State -->
+    <section class="welcome-state" id="welcomeState">
+        <div class="welcome-card">
+            <div class="welcome-icon">📊</div>
+            <h2>Welcome to ChurnGuard</h2>
+            <p>Upload a customer CSV file or click <strong>Demo Mode</strong> to explore churn predictions, SHAP explanations, and retention strategies.</p>
+            <div class="welcome-actions">
+                <label class="btn btn-primary btn-lg" for="csvUpload2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    Upload CSV
+                </label>
+                <input type="file" id="csvUpload2" accept=".csv" hidden>
+                <button class="btn btn-outline btn-lg" id="demoBtn2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Try Demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section class="content-section" id="section-dashboard" style="display:none;">
+
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-icon kpi-blue">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="kpi-content">
+                    <span class="kpi-label">Total Customers</span>
+                    <span class="kpi-value" id="kpiTotal">—</span>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon kpi-red">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <div class="kpi-content">
+                    <span class="kpi-label">High Risk</span>
+                    <span class="kpi-value" id="kpiHigh">—</span>
+                    <span class="kpi-sub" id="kpiHighPct"></span>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon kpi-orange">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                <div class="kpi-content">
+                    <span class="kpi-label">Medium Risk</span>
+                    <span class="kpi-value" id="kpiMedium">—</span>
+                    <span class="kpi-sub" id="kpiMediumPct"></span>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon kpi-green">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <div class="kpi-content">
+                    <span class="kpi-label">Low Risk</span>
+                    <span class="kpi-value" id="kpiLow">—</span>
+                    <span class="kpi-sub" id="kpiLowPct"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="charts-grid">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Risk Distribution</h3>
+                </div>
+                <div class="card-body chart-container">
+                    <canvas id="riskDonutChart"></canvas>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Top Feature Importance (SHAP)</h3>
+                </div>
+                <div class="card-body chart-container">
+                    <canvas id="featureBarChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Revenue Impact -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Revenue Impact Analysis</h3>
+                <button class="btn btn-sm btn-outline" id="exportCsvBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Export CSV
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="impact-grid">
+                    <div class="impact-item">
+                        <span class="impact-label">Revenue at Risk</span>
+                        <span class="impact-value impact-danger" id="impactRevenue">—</span>
+                    </div>
+                    <div class="impact-item">
+                        <span class="impact-label">Targeted Customers</span>
+                        <span class="impact-value" id="impactTargeted">—</span>
+                    </div>
+                    <div class="impact-item">
+                        <span class="impact-label">Projected Savings</span>
+                        <span class="impact-value impact-success" id="impactSaved">—</span>
+                    </div>
+                    <div class="impact-item">
+                        <span class="impact-label">Retention ROI</span>
+                        <span class="impact-value impact-info" id="impactROI">—</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Model Info -->
+        <div class="card card-compact">
+            <div class="card-header">
+                <h3>Model Details</h3>
+            </div>
+            <div class="card-body">
+                <div class="model-info-grid" id="modelInfoGrid">
+                    <!-- Filled by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customers Section -->
+    <section class="content-section" id="section-customers" style="display:none;">
+        <div class="card">
+            <div class="card-header">
+                <h3>Customer Scores</h3>
+                <div class="table-controls">
+                    <input type="text" class="search-input" id="customerSearch" placeholder="Search by ID...">
+                    <select class="filter-select" id="riskFilter">
+                        <option value="">All Segments</option>
+                        <option value="High">High Risk</option>
+                        <option value="Medium">Medium Risk</option>
+                        <option value="Low">Low Risk</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card-body table-wrapper">
+                <table class="data-table" id="customerTable">
+                    <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Churn Prob.</th>
+                            <th>Risk</th>
+                            <th>Top Driver</th>
+                            <th>Strategy</th>
+                            <th>Revenue</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customerTableBody">
+                    </tbody>
+                </table>
+                <div class="table-pagination" id="pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explainability Section -->
+    <section class="content-section" id="section-explainability" style="display:none;">
+        <div class="charts-grid">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Global Feature Importance</h3>
+                </div>
+                <div class="card-body chart-container chart-tall">
+                    <canvas id="globalFeatureChart"></canvas>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Individual SHAP Waterfall</h3>
+                    <select class="filter-select" id="waterfallCustomerSelect">
+                        <option value="">Select a customer...</option>
+                    </select>
+                </div>
+                <div class="card-body" id="waterfallContainer">
+                    <div class="waterfall-placeholder">
+                        <p>Select a customer to view their SHAP waterfall plot</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

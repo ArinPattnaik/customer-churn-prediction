@@ -8,6 +8,7 @@ Usage:
     # Then open http://localhost:5000
 """
 
+import gc
 import io
 import json
 import logging
@@ -101,27 +102,12 @@ def _ensure_model_loaded(
 
     version_dir = _find_latest_artifact_dir(artifacts_root)
     if version_dir is None:
-        # Auto-train if no artifacts exist
-        import subprocess
-        import sys
-
-        data_path = os.path.join("data", "customers.csv")
-        if not os.path.exists(data_path):
-            subprocess.run(
-                [sys.executable, "scripts/generate_sample_data.py"], check=True
-            )
-        subprocess.run(
-            [
-                sys.executable, "main.py",
-                "--input", data_path,
-                "--config-dir", config_dir,
-                "--output-dir", artifacts_root,
-            ],
-            check=True,
+        logger.error(
+            "No model artifacts found in %s. "
+            "Run build.sh or main.py to train a model first.",
+            artifacts_root,
         )
-        version_dir = _find_latest_artifact_dir(artifacts_root)
-        if version_dir is None:
-            return False
+        return False
 
     model, pipeline, metadata = load_artifacts(version_dir)
     _state["model"] = model
@@ -332,6 +318,9 @@ def api_score():
             "base_value": result.pop("_base_value"),
             "feature_names": result.pop("_feature_names"),
         }
+        # Free the DataFrame to reduce memory pressure
+        del df
+        gc.collect()
         return jsonify(result)
     except ValueError as exc:
         return jsonify({"error": str(exc)}), 400

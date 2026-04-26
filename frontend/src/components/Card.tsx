@@ -12,7 +12,11 @@ interface Props {
 
 export default function Card({ title, action, children, className, bodyClassName }: Props) {
   return (
-    <div className={cn("bg-bg-card border border-border rounded-xl overflow-hidden animate-fade-up", className)}>
+    <div className={cn(
+      "bg-bg-card border border-border rounded-xl overflow-hidden animate-fade-up",
+      "hover:border-gray-700/60 transition-all",
+      className
+    )}>
       {title && (
         <div className="flex items-center justify-between px-5 py-3.5 border-b border-border">
           <h3 className="text-sm font-semibold">{title}</h3>

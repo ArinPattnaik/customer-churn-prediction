@@ -20,23 +20,21 @@ const subtitles = {
 };
 
 function showSection(name) {
-    // Hide all sections + welcome
     $$('.content-section').forEach(s => s.style.display = 'none');
     $('#welcomeState').style.display = scoringData ? 'none' : 'flex';
 
     if (scoringData) {
-        $(`#section-${name}`).style.display = 'flex';
+        const section = $(`#section-${name}`);
+        if (section) section.style.display = 'flex';
     }
 
-    // Update nav
     $$('.nav-item').forEach(n => n.classList.remove('active'));
-    $(`.nav-item[data-section="${name}"]`).classList.add('active');
+    const activeNav = $(`.nav-item[data-section="${name}"]`);
+    if (activeNav) activeNav.classList.add('active');
 
-    // Update topbar
     $('#pageTitle').textContent = sections[name];
     $('#pageSubtitle').textContent = subtitles[name];
 
-    // Close mobile sidebar
     $('#sidebar').classList.remove('open');
 }
 
@@ -91,7 +89,6 @@ async function runScoring(formData) {
         renderExplainability();
         showSection('dashboard');
 
-        // Update model badge
         const badge = $('#modelBadge');
         badge.querySelector('.model-badge-dot').classList.add('ready');
         badge.querySelector('span').textContent = `${data.model_info.model_type} v${data.model_info.version}`;
@@ -116,14 +113,12 @@ function renderDashboard() {
     $('#kpiLow').textContent = s.low_risk.toLocaleString();
     $('#kpiLowPct').textContent = `${((s.low_risk / total) * 100).toFixed(1)}%`;
 
-    // Impact
     const imp = scoringData.impact;
-    $('#impactRevenue').textContent = `$${imp.total_revenue_at_risk.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    $('#impactRevenue').textContent = formatCurrency(imp.total_revenue_at_risk);
     $('#impactTargeted').textContent = imp.targeted_customer_count.toLocaleString();
-    $('#impactSaved').textContent = `$${imp.projected_revenue_saved.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    $('#impactSaved').textContent = formatCurrency(imp.projected_revenue_saved);
     $('#impactROI').textContent = `${imp.retention_roi.toFixed(2)}x`;
 
-    // Model info
     const mi = scoringData.model_info;
     const infoGrid = $('#modelInfoGrid');
     infoGrid.innerHTML = [
@@ -135,7 +130,6 @@ function renderDashboard() {
         { label: 'Accuracy', value: mi.accuracy ? (mi.accuracy * 100).toFixed(1) + '%' : 'N/A' },
     ].map(i => `<div class="model-info-item"><span class="label">${i.label}</span><span class="value">${i.value}</span></div>`).join('');
 
-    // Charts
     renderRiskDonut(s);
     renderFeatureBar(scoringData.feature_importance.slice(0, 8));
 }
@@ -151,7 +145,7 @@ function renderRiskDonut(summary) {
             datasets: [{
                 data: [summary.high_risk, summary.medium_risk, summary.low_risk],
                 backgroundColor: ['#ef4444', '#f59e0b', '#22c55e'],
-                borderColor: '#1a1d27',
+                borderColor: '#12131c',
                 borderWidth: 3,
                 hoverOffset: 6,
             }],
@@ -194,9 +188,7 @@ function renderFeatureBar(features) {
             responsive: true,
             maintainAspectRatio: false,
             indexAxis: 'y',
-            plugins: {
-                legend: { display: false },
-            },
+            plugins: { legend: { display: false } },
             scales: {
                 x: {
                     grid: { color: 'rgba(42, 45, 58, 0.5)' },
@@ -254,11 +246,10 @@ function renderCustomerTable() {
             <td><span class="risk-badge ${badgeClass}">${c.risk_segment}</span></td>
             <td>${driver}</td>
             <td>${c.retention_strategy || '—'}</td>
-            <td>$${c.annual_revenue.toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
+            <td>${formatCurrency(c.annual_revenue)}</td>
         </tr>`;
     }).join('');
 
-    // Pagination
     renderPagination(totalPages);
 }
 
@@ -301,7 +292,6 @@ $('#riskFilter').addEventListener('change', () => { currentPage = 1; renderCusto
 
 // ── Explainability ──────────────────────────────────────────────
 function renderExplainability() {
-    // Global feature chart (full list)
     const ctx = $('#globalFeatureChart').getContext('2d');
     if (globalFeatureChart) globalFeatureChart.destroy();
 
@@ -341,7 +331,6 @@ function renderExplainability() {
         },
     });
 
-    // Populate waterfall customer selector
     const select = $('#waterfallCustomerSelect');
     select.innerHTML = '<option value="">Select a customer...</option>';
     scoringData.customers.forEach((c, i) => {
@@ -372,7 +361,7 @@ $('#waterfallCustomerSelect').addEventListener('change', async (e) => {
         }
         const blob = await resp.blob();
         const url = URL.createObjectURL(blob);
-        container.innerHTML = `<img src="${url}" alt="SHAP Waterfall Plot">`;
+        container.innerHTML = `<img src="${url}" alt="SHAP Waterfall Plot" style="max-width:100%;border-radius:8px;">`;
     } catch (err) {
         container.innerHTML = `<div class="waterfall-placeholder"><p style="color:var(--red)">Failed to load plot</p></div>`;
     }
@@ -383,7 +372,7 @@ $('#exportCsvBtn').addEventListener('click', async () => {
     try {
         const resp = await fetch('/api/export/csv');
         if (!resp.ok) {
-            alert('Export not available');
+            alert('Export not available. Score data first.');
             return;
         }
         const blob = await resp.blob();
@@ -400,14 +389,22 @@ $('#exportCsvBtn').addEventListener('click', async () => {
 
 // ── Helpers ─────────────────────────────────────────────────────
 function cleanFeatureName(name) {
-    // Remove prefixes like num__, cat__ and clean up
     return name
         .replace(/^(num__|cat__)/, '')
         .replace(/_/g, ' ')
         .replace(/\b\w/g, c => c.toUpperCase());
 }
 
-// ── Init: Load model info ───────────────────────────────────────
+function formatCurrency(value) {
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+    }).format(value);
+}
+
+// ── Init ────────────────────────────────────────────────────────
 (async function init() {
     try {
         const resp = await fetch('/api/model-info');
@@ -418,6 +415,6 @@ function cleanFeatureName(name) {
             badge.querySelector('span').textContent = `${info.model_type} v${info.version}`;
         }
     } catch (e) {
-        // Model not loaded yet, that's fine
+        // Model not loaded yet
     }
 })();

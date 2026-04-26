@@ -1,4 +1,4 @@
-const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+const API = process.env.NEXT_PUBLIC_API_URL || "";
 
 export interface ModelInfo {
   model_type: string;
@@ -50,7 +50,10 @@ export interface ScoringResult {
 
 export async function fetchModelInfo(): Promise<ModelInfo> {
   const res = await fetch(`${API}/api/model-info`);
-  if (!res.ok) throw new Error("Failed to load model info");
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({ error: "Failed to load model info" }));
+    throw new Error(err.error || "Failed to load model info");
+  }
   return res.json();
 }
 

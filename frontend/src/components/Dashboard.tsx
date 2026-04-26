@@ -1,6 +1,6 @@
 "use client";
 
-import { Users, AlertTriangle, AlertCircle, CheckCircle, Download } from "lucide-react";
+import { Users, AlertTriangle, AlertCircle, CheckCircle, Download, TrendingUp } from "lucide-react";
 import {
   PieChart, Pie, Cell, ResponsiveContainer, Tooltip,
   BarChart, Bar, XAxis, YAxis, CartesianGrid,
@@ -33,7 +33,7 @@ export default function Dashboard({ data }: Props) {
   }));
 
   return (
-    <div className="p-6 space-y-5">
+    <div className="p-6 space-y-5 animate-fade-in">
       {/* KPIs */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         <KpiCard label="Total Customers" value={formatNumber(total)} icon={Users} color="blue" />
@@ -96,7 +96,7 @@ export default function Dashboard({ data }: Props) {
             {pieData.map((d, i) => (
               <div key={d.name} className="flex items-center gap-2 text-xs text-gray-400">
                 <span className="w-2.5 h-2.5 rounded-full" style={{ background: RISK_COLORS[i] }} />
-                {d.name}
+                {d.name} ({d.value})
               </div>
             ))}
           </div>
@@ -148,20 +148,23 @@ export default function Dashboard({ data }: Props) {
       >
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           <div>
-            <p className="text-xs text-gray-500 font-medium mb-1">Revenue at Risk</p>
+            <p className="text-[10px] text-gray-500 font-semibold uppercase tracking-wider mb-1">Revenue at Risk</p>
             <p className="text-xl font-bold text-red-400">{formatCurrency(imp.total_revenue_at_risk)}</p>
           </div>
           <div>
-            <p className="text-xs text-gray-500 font-medium mb-1">Targeted Customers</p>
+            <p className="text-[10px] text-gray-500 font-semibold uppercase tracking-wider mb-1">Targeted Customers</p>
             <p className="text-xl font-bold">{formatNumber(imp.targeted_customer_count)}</p>
           </div>
           <div>
-            <p className="text-xs text-gray-500 font-medium mb-1">Projected Savings</p>
+            <p className="text-[10px] text-gray-500 font-semibold uppercase tracking-wider mb-1">Projected Savings</p>
             <p className="text-xl font-bold text-emerald-400">{formatCurrency(imp.projected_revenue_saved)}</p>
           </div>
           <div>
-            <p className="text-xs text-gray-500 font-medium mb-1">Retention ROI</p>
-            <p className="text-xl font-bold text-blue-400">{imp.retention_roi.toFixed(2)}x</p>
+            <p className="text-[10px] text-gray-500 font-semibold uppercase tracking-wider mb-1">Retention ROI</p>
+            <p className="text-xl font-bold text-blue-400 flex items-center gap-1.5">
+              {imp.retention_roi.toFixed(2)}x
+              <TrendingUp size={16} className="text-blue-400/60" />
+            </p>
           </div>
         </div>
       </Card>
@@ -178,8 +181,8 @@ export default function Dashboard({ data }: Props) {
             { label: "Accuracy", value: mi.accuracy ? `${(mi.accuracy * 100).toFixed(1)}%` : "N/A" },
           ].map((item) => (
             <div key={item.label}>
-              <p className="text-[11px] text-gray-500 font-medium">{item.label}</p>
-              <p className="text-sm font-semibold">{item.value}</p>
+              <p className="text-[10px] text-gray-500 font-semibold uppercase tracking-wider">{item.label}</p>
+              <p className="text-sm font-semibold mt-0.5">{item.value}</p>
             </div>
           ))}
         </div>

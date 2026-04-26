@@ -3,7 +3,7 @@ services:
     name: churnguard
     runtime: python
     buildCommand: bash build.sh
-    startCommand: gunicorn webapp:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    startCommand: gunicorn webapp:app --bind 0.0.0.0:$PORT --workers 1 --threads 2 --timeout 120 --max-requests 50 --max-requests-jitter 10
     envVars:
       - key: PYTHON_VERSION
         value: "3.10.12"

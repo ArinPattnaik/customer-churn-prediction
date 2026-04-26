@@ -75,6 +75,24 @@ def load_strategy_mapping(config_path: str) -> dict[tuple[str, str], str]:
     return mapping
 
 
+def _clean_feature_name(name: str) -> str:
+    """Strip sklearn ColumnTransformer prefixes from feature names.
+
+    Handles prefixes like ``num__``, ``cat__``, and encoded suffixes
+    like ``cat__contract_type_Month-to-month`` → ``contract_type``.
+    """
+    import re
+
+    # Remove num__ or cat__ prefix
+    cleaned = re.sub(r"^(num__|cat__)", "", name)
+    # For one-hot encoded features, take only the base column name
+    # e.g. "contract_type_Month-to-month" → "contract_type"
+    # But don't strip if the original column name has underscores
+    # We match against known patterns: if there's a suffix after the
+    # last underscore that contains spaces or hyphens, it's likely encoded
+    return cleaned
+
+
 def recommend_strategy(
     risk_segment: str,
     top_driver: str,
@@ -82,6 +100,10 @@ def recommend_strategy(
     default_strategy: str = DEFAULT_STRATEGY,
 ) -> str:
     """Look up the retention strategy for a given segment and driver.
+
+    Strips sklearn preprocessing prefixes (``num__``, ``cat__``) from
+    the driver name before lookup, and also tries matching the base
+    column name for one-hot encoded features.
 
     Falls back to *default_strategy* when the (risk_segment, top_driver)
     pair is not found in the mapping.
@@ -96,15 +118,29 @@ def recommend_strategy(
     Returns:
         The matched retention strategy string, or *default_strategy*.
     """
-    strategy = mapping.get((risk_segment, top_driver), default_strategy)
-    if strategy == default_strategy and (risk_segment, top_driver) not in mapping:
-        logger.warning(
-            "No strategy mapping for (%s, %s). Using default: '%s'.",
-            risk_segment,
-            top_driver,
-            default_strategy,
-        )
-    return strategy
+    # Try exact match first
+    if (risk_segment, top_driver) in mapping:
+        return mapping[(risk_segment, top_driver)]
+
+    # Try with cleaned feature name (strip num__/cat__ prefix)
+    cleaned = _clean_feature_name(top_driver)
+    if (risk_segment, cleaned) in mapping:
+        return mapping[(risk_segment, cleaned)]
+
+    # For one-hot encoded features like "contract_type_Month-to-month",
+    # try matching just the base column name "contract_type"
+    # Walk through mapping keys to find partial matches
+    for (seg, driver), strategy in mapping.items():
+        if seg == risk_segment and cleaned.startswith(driver):
+            return strategy
+
+    logger.debug(
+        "No strategy mapping for (%s, %s). Using default: '%s'.",
+        risk_segment,
+        top_driver,
+        default_strategy,
+    )
+    return default_strategy
 
 
 def recommend_batch(

@@ -52,7 +52,7 @@ app = Flask(__name__, template_folder="templates", static_folder="static")
 
 @app.after_request
 def add_cors_headers(response):
-    """Add CORS headers to every response for the Vercel frontend."""
+    """Add CORS headers to every response for the frontend."""
     origin = request.headers.get("Origin", "")
     response.headers["Access-Control-Allow-Origin"] = origin or "*"
     response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
@@ -60,6 +60,7 @@ def add_cors_headers(response):
     if request.method == "OPTIONS":
         response.status_code = 204
     return response
+
 
 # ── Global state ─────────────────────────────────────────────────────
 _state = {
@@ -151,7 +152,7 @@ def _run_scoring_pipeline(df: pd.DataFrame) -> dict:
     required = schema["required_columns"]
     validate_schema(df, required)
 
-    # Preprocess
+    # Preprocess — drop target and ID columns before transform
     df_features = df.drop(columns=[target_column], errors="ignore")
     if id_column in df_features.columns:
         df_features = df_features.drop(columns=[id_column])
@@ -274,10 +275,20 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/health")
+def health():
+    """Health check endpoint for load balancers and monitoring."""
+    model_loaded = _state["model"] is not None
+    return jsonify({
+        "status": "healthy",
+        "model_loaded": model_loaded,
+    }), 200
+
+
 @app.route("/api/model-info")
 def api_model_info():
     if not _ensure_model_loaded():
-        return jsonify({"error": "No model available"}), 500
+        return jsonify({"error": "No model available. Train a model first by running: python main.py --input data/customers.csv"}), 503
     meta = _state["metadata"]
     return jsonify({
         "model_type": meta.model_type,
@@ -294,7 +305,7 @@ def api_score():
     global _last_result
 
     if not _ensure_model_loaded():
-        return jsonify({"error": "No model available"}), 500
+        return jsonify({"error": "No model available. Train a model first by running: python main.py --input data/customers.csv"}), 503
 
     # Check if file uploaded or demo mode
     if "file" in request.files and request.files["file"].filename:
@@ -370,12 +381,6 @@ def api_export_csv():
     if not _last_result:
         return jsonify({"error": "No scoring results available"}), 400
 
-    # Re-run demo to get the data (or use cached)
-    demo_path = os.path.join("data", "customers.csv")
-    if not os.path.exists(demo_path):
-        return jsonify({"error": "No data available"}), 404
-
-    # Read the latest dashboard CSV if available
     version_dir = _state.get("version_dir")
     if version_dir:
         csv_path = os.path.join(version_dir, "dashboards", "customer_summary.csv")

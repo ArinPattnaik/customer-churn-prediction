@@ -1,6 +1,6 @@
 "use client";
 
-import { LayoutDashboard, Users, Box, X } from "lucide-react";
+import { LayoutDashboard, Users, Box, X, Activity } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Tab } from "@/app/page";
 import type { ModelInfo, ScoringResult } from "@/lib/api";
@@ -27,7 +27,7 @@ export default function Sidebar({ tab, setTab, modelInfo, data, open, onClose }:
     <>
       {/* Mobile overlay */}
       {open && (
-        <div className="fixed inset-0 bg-black/60 z-40 lg:hidden" onClick={onClose} />
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden animate-fade-in" onClick={onClose} />
       )}
 
       <aside
@@ -43,7 +43,7 @@ export default function Sidebar({ tab, setTab, modelInfo, data, open, onClose }:
             <span className="text-2xl">🛡️</span>
             <span className="text-lg font-bold tracking-tight">ChurnGuard</span>
           </div>
-          <button className="lg:hidden text-gray-400 hover:text-white" onClick={onClose}>
+          <button className="lg:hidden text-gray-400 hover:text-white transition-colors" onClick={onClose}>
             <X size={20} />
           </button>
         </div>
@@ -57,7 +57,7 @@ export default function Sidebar({ tab, setTab, modelInfo, data, open, onClose }:
               className={cn(
                 "w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium transition-all",
                 tab === item.id
-                  ? "bg-accent/10 text-accent-light"
+                  ? "bg-accent/10 text-accent-light shadow-sm shadow-accent/5"
                   : "text-gray-400 hover:bg-bg-hover hover:text-gray-200"
               )}
             >
@@ -69,11 +69,11 @@ export default function Sidebar({ tab, setTab, modelInfo, data, open, onClose }:
 
         {/* Model badge */}
         <div className="p-4 border-t border-border">
-          <div className="flex items-center gap-2 text-xs text-gray-500">
+          <div className="flex items-center gap-2.5 text-xs text-gray-500">
             <span
               className={cn(
-                "w-2 h-2 rounded-full flex-shrink-0",
-                info ? "bg-emerald-500" : "bg-amber-500"
+                "w-2 h-2 rounded-full flex-shrink-0 transition-colors",
+                info ? "bg-emerald-500 shadow-sm shadow-emerald-500/50" : "bg-amber-500 animate-pulse"
               )}
             />
             <span className="truncate">

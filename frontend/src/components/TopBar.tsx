@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { Upload, Play, Menu } from "lucide-react";
+import { Upload, Play, Menu, ArrowRight } from "lucide-react";
 import type { Tab } from "@/app/page";
 
 const titles: Record<Tab, { title: string; sub: string }> = {
@@ -22,8 +22,8 @@ export default function TopBar({ tab, onUpload, onDemo, onMenuToggle }: Props) {
   const { title, sub } = titles[tab];
 
   return (
-    <header className="sticky top-0 z-30 flex items-center gap-4 px-6 h-16 bg-bg-card/80 backdrop-blur-md border-b border-border">
-      <button className="lg:hidden text-gray-400 hover:text-white" onClick={onMenuToggle}>
+    <header className="sticky top-0 z-30 flex items-center gap-4 px-6 h-16 bg-bg-card/80 backdrop-blur-xl border-b border-border">
+      <button className="lg:hidden text-gray-400 hover:text-white transition-colors" onClick={onMenuToggle}>
         <Menu size={22} />
       </button>
 
@@ -50,7 +50,7 @@ export default function TopBar({ tab, onUpload, onDemo, onMenuToggle }: Props) {
         </label>
         <button
           onClick={onDemo}
-          className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium bg-accent hover:bg-accent-light text-white transition-all"
+          className="group flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium bg-accent hover:bg-accent-light text-white transition-all shadow-sm shadow-accent/20"
         >
           <Play size={14} />
           <span className="hidden sm:inline">Demo Mode</span>
